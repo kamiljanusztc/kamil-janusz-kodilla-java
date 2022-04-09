@@ -22,7 +22,7 @@ public class WeatherForecast {
         return resultMap;
     }
 
-    public double AverageTemp() {
+    public double averageTemp() {
         double result = 0;
 
         for (Map.Entry<String, Double> temperature :
@@ -34,7 +34,7 @@ public class WeatherForecast {
         return result;
     }
 
-    public double MedianTemp() {
+    public double medianTemp() {
         double median = 0;
         List<Double> tempList = new ArrayList<>();
 
