@@ -31,7 +31,7 @@ class BookDirectoryTestSuite {
     }
 
     @Nested
-    @DisplayName("Tests for comments")
+    @DisplayName("Tests for books with conditions")
     class TestBooksWithConditions {
 
         @Test
@@ -99,7 +99,7 @@ class BookDirectoryTestSuite {
     }
 
     @Nested
-    @DisplayName("Tests for comments")
+    @DisplayName("Tests for books in hands off")
     class TestBooksInHandsOff {
 
         @Test
