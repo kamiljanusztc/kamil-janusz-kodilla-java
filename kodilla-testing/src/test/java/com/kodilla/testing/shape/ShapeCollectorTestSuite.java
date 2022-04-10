@@ -46,7 +46,7 @@ public class ShapeCollectorTestSuite {
         void testRemoveFigure() {
 //            Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Triangle triangle = new Triangle(3.2);
+            Triangle triangle = new Triangle(3.2, 3.3);
             shapeCollector.addFigure(triangle);
 
 //            When
@@ -78,7 +78,7 @@ public class ShapeCollectorTestSuite {
             ShapeCollector shapeCollector = new ShapeCollector();
             Circle circle = new Circle(1.1);
             Square square = new Square(2.0);
-            Triangle triangle = new Triangle(3.4);
+            Triangle triangle = new Triangle(3.4, 3.3);
             shapeCollector.addFigure(circle);
             shapeCollector.addFigure(square);
             shapeCollector.addFigure(triangle);

@@ -2,16 +2,27 @@ package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
 
-    public Circle(double v) {
+    private double radius;
+    private String shapeName = "circle";
+
+    public Circle(double circle) {
+        this.radius = radius;
     }
 
     @Override
     public String getShapeName() {
-        return null;
+        return shapeName;
     }
 
     @Override
     public double getField() {
-        return 0;
+        return radius * radius * Math.PI;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "shapeName='" + shapeName + '\'' +
+                '}';
     }
 }
