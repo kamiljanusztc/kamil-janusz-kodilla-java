@@ -39,7 +39,7 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(circle);
 
 //            Then
-            Assertions.assertEquals(1, shapeCollector.getShapeQuantity());
+            Assertions.assertEquals(1, shapeCollector.showFigures().size());
         }
 
         @Test
@@ -54,8 +54,7 @@ public class ShapeCollectorTestSuite {
 
 //            Then
             Assertions.assertTrue(result);
-            Assertions.assertEquals(0, shapeCollector.getShapeQuantity());
-
+            Assertions.assertEquals(0, shapeCollector.showFigures().size());
         }
 
         @Test
@@ -71,7 +70,6 @@ public class ShapeCollectorTestSuite {
 
 //            Then
             Assertions.assertEquals(square, retrievedShape);
-
         }
 
         @Test
@@ -88,11 +86,10 @@ public class ShapeCollectorTestSuite {
             List<Shape> shapeList= new ArrayList<>(Arrays.asList (circle, square, triangle));
 
 //            When
-            List<Shape> expectedShapeList = shapeCollector.getShapeCollection();
+            List<Shape> expectedShapeList = shapeCollector.showFigures();
 
 //            Then
             Assertions.assertEquals(shapeList.toString(), expectedShapeList.toString());
-
         }
 
     }

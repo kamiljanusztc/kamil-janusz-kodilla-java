@@ -8,31 +8,23 @@ public class ShapeCollector {
     private List<Shape> shapeCollection = new ArrayList<>();
 
     public void addFigure(Shape shape) {
-
+        shapeCollection.add(shape);
     }
 
     public boolean removeFigure(Shape shape) {
         boolean result = false;
+        if (shapeCollection.contains(shape)) {
+            shapeCollection.remove(shape);
+            result = true;
+        }
         return result;
     }
 
     public Shape getFigure(int n) {
-
-        return null;
+        return shapeCollection.get(n);
     }
 
-    public void showFigures() {
-
+    public List<Shape> showFigures() {
+        return shapeCollection;
     }
-
-    public int getShapeQuantity() {
-
-        return 0;
-    }
-
-    public List<Shape> getShapeCollection() {
-
-        return null;
-    }
-
 }
