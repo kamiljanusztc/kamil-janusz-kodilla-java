@@ -51,8 +51,8 @@ public class RpsRunner {
     private static void playRockPaperScissors(Scanner scanner) {
         System.out.println("Make a move! Click 1 = rock, 2 = paper, 3 = scissors");
 
-        int playerMove = scanner.nextInt(); // 1
-        int computerMove = getComputerMove(); // 2
+        int playerMove = scanner.nextInt();
+        int computerMove = getComputerMove();
 
         compareMoves(playerMove, computerMove);
     }
