@@ -12,8 +12,8 @@ public class ThrowExceptionTestSuite {
         //When & Then
         assertAll(
                 () -> assertThrows(Exception.class, () -> secondChallenge.probablyIWillThrowException(2.0, 1.5)),
-                () -> assertThrows(Exception.class, () -> secondChallenge.probablyIWillThrowException(1.1, 2.1)),
-                () -> assertThrows(Exception.class, () -> secondChallenge.probablyIWillThrowException(1.1, 1.1))
+                () -> assertDoesNotThrow( () -> secondChallenge.probablyIWillThrowException(1.1, 2.1)),
+                () -> assertDoesNotThrow( () -> secondChallenge.probablyIWillThrowException(1.1, 1.1))
         );
     }
 }
