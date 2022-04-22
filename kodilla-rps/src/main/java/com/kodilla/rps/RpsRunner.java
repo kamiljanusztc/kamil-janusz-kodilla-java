@@ -35,10 +35,8 @@ public class RpsRunner {
     }
 
     private static int getUserRounds(Scanner scanner) {
-        int rounds;
         System.out.println("How many rounds would you like to play?");
-        rounds = scanner.nextInt();
-        return rounds;
+        return scanner.nextInt();
     }
 
     private static void getUserName(Scanner scanner) {
