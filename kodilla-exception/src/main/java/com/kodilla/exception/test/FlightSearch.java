@@ -5,20 +5,24 @@ import java.util.Map;
 
 public class FlightSearch {
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    Map<String, Boolean> flights = new HashMap<>();
 
-        Map<String, Boolean> flights = new HashMap<>();
+    {
         flights.put("Warsaw Airport", true);
         flights.put("Wroclaw Airport", true);
         flights.put("Poznan Airport", false);
-        flights.put("Katowice Airport", true);
+        flights.put("Katowice Airport", false);
         flights.put("Krakow Airport", false);
+    }
 
-        if (!flights.containsKey(flight.getArrivalAirport())) {
-            throw new RouteNotFoundException("Arrival airport does not exist");
-        }
-        if (!flights.containsKey(flight.getDepartureAirport())) {
-            throw new RouteNotFoundException("Departure airport does not exist");
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+
+        if (flights.containsKey(flight.getDepartureAirport()) && flights.containsKey(flight.arrivalAirport)) {
+            boolean isArrivalAirportAvailable = flights.get(flight.arrivalAirport);
+            System.out.println(flight.arrivalAirport + " availability: " + isArrivalAirportAvailable);
+            return isArrivalAirportAvailable;
+        } else {
+            throw new RouteNotFoundException(flight.arrivalAirport + "Airport unavailable");
         }
     }
 
@@ -31,7 +35,7 @@ public class FlightSearch {
          } catch (RouteNotFoundException e) {
              System.out.println("Error! " + e);
          } finally {
-             System.out.println("Flight list");
+             System.out.println("Flight checked");
          }
     }
 }
