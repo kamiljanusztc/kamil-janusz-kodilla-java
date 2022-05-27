@@ -5,12 +5,15 @@ import java.time.LocalDateTime;
 public class RequestRetriever {
 
     public OrderRequest retrieve() {
-        Supplier supplier = new Supplier("ExtraFoodShop", "Warsaw", "Snacks");
-        Product product = new Product("Protein super snack", 300, true);
+        HealthyShop healthyShop = new HealthyShop();
+        Supplier supplier = new Supplier(healthyShop.getName(), healthyShop.getLocation(), healthyShop.getProductType());
+        Product product = new Product(healthyShop.getProductName(), healthyShop.getAmount(), healthyShop.isProductsInStock());
 
         LocalDateTime orderPlacedDate = LocalDateTime.of(2022, 10, 20, 12, 20, 0);
         LocalDateTime deliveryDate = LocalDateTime.of(2022, 10, 23, 0, 0, 0);
 
-        return new OrderRequest(supplier, product, orderPlacedDate, deliveryDate);
+        Boolean isOrderInStock = healthyShop.isProductsInStock();
+
+        return new OrderRequest(supplier, product, orderPlacedDate, deliveryDate, isOrderInStock);
     }
 }

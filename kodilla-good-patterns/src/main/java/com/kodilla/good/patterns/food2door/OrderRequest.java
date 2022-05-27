@@ -8,12 +8,14 @@ public class OrderRequest {
     private Product product;
     private LocalDateTime orderPlacedDate;
     private LocalDateTime deliveryDate;
+    private boolean isOrderInStock;
 
-    public OrderRequest(Supplier supplier, Product product, LocalDateTime orderPlacedDate, LocalDateTime deliveryDate) {
+    public OrderRequest(Supplier supplier, Product product, LocalDateTime orderPlacedDate, LocalDateTime deliveryDate, boolean isOrderInStock) {
         this.supplier = supplier;
         this.product = product;
         this.orderPlacedDate = orderPlacedDate;
         this.deliveryDate = deliveryDate;
+        this.isOrderInStock = product.isProductInStock();
     }
 
     public Supplier getSupplier() {
@@ -30,5 +32,9 @@ public class OrderRequest {
 
     public LocalDateTime getDeliveryDate() {
         return deliveryDate;
+    }
+
+    public boolean isOrderInStock() {
+        return isOrderInStock;
     }
 }

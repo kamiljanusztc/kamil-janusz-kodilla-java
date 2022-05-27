@@ -21,12 +21,15 @@ public class OrderProcessor {
                 orderRequest.getDeliveryDate()
         );
 
-        if (isOrderPlaced) {
+        boolean isOrderInStock = orderRequest.isOrderInStock();
+
+        if (isOrderPlaced && isOrderInStock) {
             infoService.sendConfirmation();
             orderBase.addToDB();
             return new ProductOrderDto(orderRequest.getSupplier(),
                     orderRequest.getProduct(), true);
         } else {
+            System.out.println("Sorry! There is no product in stock");
             return new ProductOrderDto(orderRequest.getSupplier(),
                     orderRequest.getProduct(), false);
         }
