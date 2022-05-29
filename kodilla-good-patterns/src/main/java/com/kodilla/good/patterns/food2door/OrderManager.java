@@ -3,6 +3,7 @@ package com.kodilla.good.patterns.food2door;
 import java.time.LocalDateTime;
 
 public class OrderManager implements  OrderManagement {
+
     @Override
     public boolean order(Supplier supplier, Product product, LocalDateTime orderPlacedDate, LocalDateTime deliveryDate) {
 
