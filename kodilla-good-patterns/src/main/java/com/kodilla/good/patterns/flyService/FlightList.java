@@ -29,14 +29,4 @@ public class FlightList {
         arrivals.putAll(warsawArrivals.getArrivals());
         return arrivals;
     }
-
-
-//    stworzenie lotow skad dokad
-
-//    znalezienie wszystkich lotów z podanego miasta,
-//    znalezienie wszystkich lotów do danego miasta,
-//    znalezienie lotów poprzez inne miasto np. lot z Gdańska przez Kraków do Wrocławia.
-//    Firma zna się na technologiach i wymaga użycia iteracji za pomocą Stream oraz spodziewa się wykorzystania kontraktu Equals i Hashcode.
-
-
 }

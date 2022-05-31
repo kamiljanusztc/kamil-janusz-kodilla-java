@@ -8,15 +8,16 @@ import java.util.Map;
 
 public class PoznanAirport implements FlightProvider {
 
+    private static final List<String> departureRoute = Arrays.asList("Poznan", "Wroclaw");
+    private static final List<String> arrivalRoute = Arrays.asList("Wroclaw", "Poznan");
+
     @Override
     public List<String> departureRoute() {
-        List<String> departureRoute = Arrays.asList("Poznan", "Wroclaw");
         return departureRoute;
     }
 
     @Override
     public List<String> arrivalRoute() {
-        List<String> arrivalRoute = Arrays.asList("Wroclaw", "Poznan");
         return arrivalRoute;
     }
     @Override

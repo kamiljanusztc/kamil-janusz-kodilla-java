@@ -1,7 +1,6 @@
 package com.kodilla.good.patterns.flyService;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
