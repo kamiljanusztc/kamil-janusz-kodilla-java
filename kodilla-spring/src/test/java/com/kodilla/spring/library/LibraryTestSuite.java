@@ -1,48 +1,41 @@
-package com.kodilla.kodillaspring;
+package com.kodilla.spring.library;
 
-import com.kodilla.spring.shape.Circle;
-import com.kodilla.spring.shape.Shape;
-import com.kodilla.spring.shape.Triangle;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class KodillaSpringApplicationTests {
+class LibraryTestSuite {
 
     @Test
-    void testCircleLoadedIntoContainer() {
+    void testLoadFromDb() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = context.getBean(Circle.class);
+        Library library = context.getBean(Library.class);
 
         //When
-        String name = shape.getShapeName();
+        library.loadFromDb();
 
         //Then
-        assertEquals("This is a circle.", name);
+        //do nothing
     }
 
     @Test
-    void testTriangleLoadedIntoContainer() {
+    void testSaveToDb() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = context.getBean(Triangle.class);
+        Library library = context.getBean(Library.class);
 
         //When
-        String name = shape.getShapeName();
+        library.saveToDb();
 
         //Then
-        assertEquals("This is a triangle.", name);
+        //do nothing
     }
-
-    @Test
-    void contextLoads() {
-    }
-
 }
