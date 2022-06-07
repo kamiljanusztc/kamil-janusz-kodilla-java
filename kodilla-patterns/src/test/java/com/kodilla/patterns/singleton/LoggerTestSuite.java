@@ -13,9 +13,10 @@ public class LoggerTestSuite {
     void testLastLog() {
         //Given
        logger.log("last log");
-//        logger = logger.getLastLog();
+
         //When
         String result = logger.getLastLog();
+
         //Then
         assertEquals("last log", result);
     }
