@@ -9,23 +9,26 @@ public class BigmacTestSuite {
     @Test
     void testBigMacNew() {
         //Given
-        Bigmac bigmac = new BigmacBuilder()
-                .bun("z sezamem")
-                .burgers(2)
-                .ingredient("sałata")
-                .ingredient("cebula")
-                .ingredient("papryczki chilli")
-                .ingredient("ser")
+        Bigmac bigmac = new Bigmac.BigmacBuilder()
+                .Bun(Bun.SEASAM)
+                .Sauce(Sauce.STANDARD)
+                .Burgers(2)
+                .Ingredients(Ingredient.BACON)
+                .Ingredients(Ingredient.CHEESE)
+                .Ingredients(Ingredient.CHILLI)
+                .Ingredients(Ingredient.SALAT)
                 .build();
         System.out.println(bigmac);
 
         //When
-        String whichBun = bigmac.getBun();
+        String whichBun = bigmac.getBun().getBunType();
+        String whichSauce = bigmac.getSauce().getSauceType();
         int howManyBurgers = bigmac.getBurgers();
         int howManyIngredients = bigmac.getIngredients().size();
 
         //Then
-        assertEquals("z sezamem", whichBun);
+        assertEquals("SEASAM", whichBun);
+        assertEquals("STANDARD", whichSauce);
         assertEquals(2, howManyBurgers);
         assertEquals(4, howManyIngredients);
     }
