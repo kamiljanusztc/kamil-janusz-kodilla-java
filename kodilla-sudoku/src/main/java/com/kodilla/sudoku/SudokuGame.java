@@ -1,33 +1,36 @@
 package com.kodilla.sudoku;
 
+import java.util.List;
+
 public class SudokuGame {
+    private final SudokuBoard board = new SudokuBoard();
 
-    private int[][] board = new int[9][9];
-
-    private static void resolveSudoku() {
-
-        //rozwal sudoku do konca jakims algorytmem. Stan tabeli w board/
+    public boolean resolve(){
+        board.createBoard();
+        fillSudoku();
+        solveSudoku();
+        return true;
     }
 
-    private static void printBoard() {
-        //wyswietl aktualna plansze sudoku na podstawie tabelki board.
-    }
-
-    public static void main(String[] args) {
-
-        printBoard();
-        boolean gameFinished = false;
-        while (!gameFinished) {
-            //wyswietl instrukcje uzytkownikowi
-            //skaner
-
-            printBoard();
-
-            //if wybral sudoku
-            resolveSudoku();
-            gameFinished = true;
+    private void fillSudoku(){
+        IOService.welcome();
+        System.out.println(board);
+        List<String> inputList = IOService.getInput();
+        for(String input: inputList){
+            board.addInputToSudoku(Character.getNumericValue(input.charAt(0)), Character.getNumericValue(input.charAt(1))
+                    ,Character.getNumericValue(input.charAt(2)));
+            System.out.println(board);
         }
     }
 
-
+    private void solveSudoku(){
+        IOService.sudokuSolveQuestion();
+        try {
+            Solver solver = new Solver(board.deepCopy());
+            SudokuBoard result = solver.solve();
+            System.out.println(result);
+        } catch (CloneNotSupportedException e){
+            IOService.cloneBoardError();
+        }
+    }
 }
