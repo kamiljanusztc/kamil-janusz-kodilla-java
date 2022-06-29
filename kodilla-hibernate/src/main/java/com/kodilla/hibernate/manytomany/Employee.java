@@ -5,10 +5,6 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveByLastName",
-        query = "FROM Task WHERE lastname = :LASTNAME"
-)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Task.retrieveCompaniesByFirstThreeCharacters",
+        name = "Company.retrieveCompaniesByFirstThreeCharacters",
         query = "SELECT * FROM COMPANIES" +
                 " WHERE SUBSTRING(COMPANY_NAME,1,3) = :CHARACTERS",
         resultClass = Company.class

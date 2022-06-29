@@ -15,6 +15,7 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
     private EmployeeDao employeeDao;
 
     @Test
@@ -94,8 +95,8 @@ class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //When
-        List<Company> companies = companyDao.retrieveCompaniesByFirstThreeCharacters("Machine");
-        List<Employee> employees = employeeDao.retrieveByLastName("Smith");
+        List<Company> companies = companyDao.retrieveCompaniesByFirstThreeCharacters("Mac");
+        List<Employee> employees = employeeDao.findByLastname("Smith");
 
         //Then
         assertEquals(1, employees.size());
