@@ -11,6 +11,13 @@ import java.util.List;
                 " WHERE SUBSTRING(COMPANY_NAME,1,3) = :CHARACTERS",
         resultClass = Company.class
 )
+
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesByRandomCharacters",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%', :CHARACTERS, '%')",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
